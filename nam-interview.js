@@ -19,3 +19,35 @@
 // Example 3:
 // Input: version1 = "1.0", version2 = "1.0.0.0"
 // Output: 0
+
+// Example 4:
+// Input: version1 = "1.0", version2 = "1.0.0.0.0.1"
+// Output: 0
+
+function compareVersions(version1, version2) {
+  const v1 = version1.split('.');
+  const v2 = version2.split('.');
+  const maxLength = Math.max(v1.length, v2.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    if (!v1[i]) {
+      v1.push(0);
+    }
+
+    if (!v2[i]) {
+      v2.push(0);
+    }
+
+    if (Number(v1[i]) > Number(v2[i])) {
+      return 1;
+    }
+
+    if (Number(v1[i]) < Number(v2[i])) {
+      return -1;
+    }
+  }
+
+  return 0;
+}
+
+console.log(compareVersions('1.2', '1.10'));
