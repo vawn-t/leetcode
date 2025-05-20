@@ -2,6 +2,8 @@
  * @param {string} s
  * @param {string} t
  * @return {boolean}
+ * Time: O(n)
+ * Space: O(n)
  */
 var isAnagram = function (s, t) {
 	const startTime = performance.now();
@@ -42,6 +44,10 @@ var isAnagram = function (s, t) {
 	return true;
 };
 
+/**
+ * Time: O(n)
+ * Space: O(1)
+ */
 var isAnagramCharCode = function (s, t) {
 	const startTime = performance.now();
 

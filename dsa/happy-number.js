@@ -3,6 +3,7 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
+	// O(n) = logn
 	const set = new Set();
 
 	while (n > 1) {
@@ -20,7 +21,7 @@ var getNext = function (n) {
 	while (n > 0) {
 		const digit = n % 10;
 		total = total + Math.pow(digit, 2);
-		n = Math.floor(n / 10);
+		n = Math.floor(n / 10); // log10(n) => logn
 	}
 
 	return total;
