@@ -7,9 +7,6 @@ var searchInsert = function (nums, target) {
   let l = 0;
   let r = nums.length - 1;
 
-  if (target > nums[r]) return r + 1;
-  if (target < nums[l]) return l - 1;
-
   while (l <= r) {
     const mid = Math.floor(l + (r - l) / 2); // (l + r) / 2
 
