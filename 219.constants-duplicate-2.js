@@ -50,5 +50,27 @@ var containsNearbyDuplicate = function (nums, k) {
   return false;
 };
 
+// Sliding Window. Use Set
+var containsNearbyDuplicate = function (nums, k) {
+  const window = new Set();
+
+  for (let i = 0; i < nums.length; i++) {
+    // If current element already exists in window, we found a duplicate
+    if (window.has(nums[i])) {
+      return true;
+    }
+
+    // Add current element to window
+    window.add(nums[i]);
+
+    // If window size exceeds k, remove the leftmost element
+    if (window.size > k) {
+      window.delete(nums[i - k]);
+    }
+  }
+
+  return false;
+};
+
 console.log(containsNearbyDuplicate([1, 2, 3, 1], 3)); // true
 console.log(containsNearbyDuplicate([1, 2, 3, 1, 2, 3, 1], 2)); // false
